@@ -1,10 +1,11 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
 import Head from "next/head";
+import { AnimatedPage } from "./components/animated-page";
 
 export default function Home() {
   return (
-    <>
+    <AnimatedPage>
       <Head>
         <title>SCMS Web | Home</title>
       </Head>
@@ -19,6 +20,6 @@ export default function Home() {
         </section>
       </main>
       ;
-    </>
+    </AnimatedPage>
   );
 }
