@@ -38,6 +38,8 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  --boxColor: rgb(204, 202, 202);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -70,6 +72,8 @@
     --callout-border-rgb: 108, 108, 108;
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
+
+    --boxColor: rgb(34, 34, 34);
   }
 }
 
