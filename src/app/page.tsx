@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.scss";
 import Head from "next/head";
 import { AnimatedPage } from "./components/animated-page";
+import Box from "./components/box/box";
 
 export default function Home() {
   return (
@@ -39,6 +40,14 @@ export default function Home() {
                 height={500}
               />
             </div>
+          </div>
+        </section>
+
+        <section className={`${styles.thirdSection}`}>
+          <div className={styles.boxContainer}>
+            <Box text="Easy" />
+            <Box text="Quick" />
+            <Box text="Safe" />
           </div>
         </section>
       </main>
