@@ -22,3 +22,30 @@
     }
   }
 }
+
+.secondSection {
+  .secondSectionContent {
+    display: flex;
+    padding: 40px;
+    .secondSectionText {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        padding: 2vh;
+      }
+      p {
+        font-size: 1rem;
+        font-weight: 400;
+        padding: 2vh;
+        text-align: justify;
+      }
+    }
+    .secondSectionImage {
+      padding: 20px;
+    }
+  }
+}
