@@ -53,6 +53,28 @@
 .thirdSection {
   .boxContainer {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+  }
+}
+
+.fourthSection {
+  .fourthSectionContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    margin: 40px;
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      padding: 2vh;
+    }
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 2vh;
+      text-align: justify;
+    }
   }
 }

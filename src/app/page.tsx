@@ -50,6 +50,14 @@ export default function Home() {
             <Box text="Safe" />
           </div>
         </section>
+
+        <section className={`${styles.fourthSection}`}>
+          <div className={styles.fourthSectionContent}>
+            <div className={styles.fourthSectionText}>
+              <h1>Personal Portals For Everyone</h1>
+            </div>
+          </div>
+        </section>
       </main>
     </AnimatedPage>
   );
