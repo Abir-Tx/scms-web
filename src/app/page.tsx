@@ -3,13 +3,18 @@ import styles from "./page.module.scss";
 import Head from "next/head";
 import { AnimatedPage } from "./components/animated-page";
 import Box from "./components/box/box";
+import { Metadata } from "next";
+
+/**
+ * Represents the metadata for a page.
+ */
+export const metadata: Metadata = {
+  title: "My Page Title",
+};
 
 export default function Home() {
   return (
     <AnimatedPage>
-      <Head>
-        <title>SCMS Web | Home</title>
-      </Head>
       <main className={styles.main}>
         <section className={`${styles.firstSection}`}>
           <div className={styles.bgImageCon}>
