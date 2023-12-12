@@ -4,6 +4,7 @@ import Head from "next/head";
 import { AnimatedPage } from "./components/animated-page";
 import Box from "./components/box/box";
 import { Metadata } from "next";
+import TabbedBox from "./components/tabbedbox/tabbedbox";
 
 /**
  * Represents the metadata for a page.
@@ -62,6 +63,7 @@ export default function Home() {
             <div className={styles.fourthSectionText}>
               <h1>Personal Portals For Everyone</h1>
             </div>
+            <TabbedBox />
           </div>
         </section>
       </main>

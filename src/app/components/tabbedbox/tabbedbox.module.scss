@@ -1,0 +1,36 @@
+// TabbedBox.module.scss
+
+.tabbedBox {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 300px; /* Adjust the width as needed */
+}
+
+.tabButtons {
+  display: flex;
+}
+
+.button {
+  padding: 10px;
+  flex: 1;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #ddd;
+  }
+}
+
+.active {
+  background-color: #ddd;
+}
+
+.tabContent {
+  padding: 10px;
+}
