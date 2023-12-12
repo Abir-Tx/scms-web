@@ -9,7 +9,8 @@ import { Metadata } from "next";
  * Represents the metadata for a page.
  */
 export const metadata: Metadata = {
-  title: "My Page Title",
+  title: "SCMS Web | Home",
+  description: "SCMS Web is a website for the Supply Chain Management System.",
 };
 
 export default function Home() {
