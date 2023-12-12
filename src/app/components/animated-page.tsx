@@ -1,8 +1,13 @@
 "use client";
 
+import { ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export const AnimatedPage = ({ children }) => (
+interface AnimatedPageProps {
+  children: ReactNode;
+}
+
+export const AnimatedPage = ({ children }: AnimatedPageProps) => (
   <>
     <AnimatePresence>
       <motion.div
