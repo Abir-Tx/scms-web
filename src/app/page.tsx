@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
-import Head from "next/head";
 import { AnimatedPage } from "./components/animated-page";
 import Box from "./components/box/box";
 import { Metadata } from "next";
@@ -63,7 +62,9 @@ export default function Home() {
             <div className={styles.fourthSectionText}>
               <h1>Personal Portals For Everyone</h1>
             </div>
-            <TabbedBox />
+            <div className={styles.tabbedBoxContainer}>
+              <TabbedBox />
+            </div>
           </div>
         </section>
       </main>
