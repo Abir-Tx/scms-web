@@ -1,0 +1,43 @@
+// SCSS stylesheet for the TabContent component.
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  .text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    button {
+      padding: 10px;
+      flex: 1;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background-color: #262626;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #3a3838;
+      }
+    }
+
+    .active {
+      background-color: #464444;
+    }
+  }
+}
