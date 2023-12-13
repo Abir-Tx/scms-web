@@ -1,13 +1,16 @@
 import styles from "./tab-content.module.scss";
-export default function TabContent() {
+
+interface TabContentProps {
+  text: string;
+  buttonText: string;
+}
+
+export default function TabContent(props: TabContentProps) {
   return (
     <div className={styles.container}>
-      <p className={styles.text}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
-        assumenda reiciendis voluptate doloribus libero expedita repellendus
-      </p>
+      <p className={styles.text}>{props.text}</p>
       <div className={styles.buttonContainer}>
-        <button type="button">Login</button>
+        <button type="button">{props.buttonText}</button>
       </div>
     </div>
   );
