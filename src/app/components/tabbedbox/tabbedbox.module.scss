@@ -3,10 +3,11 @@
 .tabbedBox {
   display: flex;
   flex-direction: column;
-  border: 1px solid #ccc;
+  // border: 1px solid #ccc;
   border-radius: 4px;
   overflow: hidden;
-  width: 300px; /* Adjust the width as needed */
+  width: 300px;
+  background-color: #171515;
 }
 
 .tabButtons {
@@ -19,16 +20,17 @@
   cursor: pointer;
   border: none;
   outline: none;
-  background-color: #f0f0f0;
+  // background-color: #f0f0f0;
+  background-color: #262626;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #ddd;
+    background-color: #3a3838;
   }
 }
 
 .active {
-  background-color: #ddd;
+  background-color: #464444;
 }
 
 .tabContent {

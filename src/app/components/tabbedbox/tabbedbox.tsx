@@ -2,6 +2,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./tabbedbox.module.scss";
+import TabContent from "./tabContent/tab-content";
 
 const TabbedBox: React.FC = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
@@ -17,21 +18,29 @@ const TabbedBox: React.FC = () => {
           className={`${styles.button} ${activeTab === 0 ? styles.active : ""}`}
           onClick={() => handleTabClick(0)}
         >
-          Button 1
+          Logistics Manager
         </button>
         <button
           className={`${styles.button} ${activeTab === 1 ? styles.active : ""}`}
           onClick={() => handleTabClick(1)}
         >
-          Button 2
+          Admin
         </button>
-        {/* Add more buttons as needed */}
       </div>
 
       <div className={styles.tabContent}>
-        {activeTab === 0 && <p>Content for Button 1</p>}
-        {activeTab === 1 && <p>Content for Button 2</p>}
-        {/* Add more content sections as needed */}
+        {activeTab === 0 && (
+          <TabContent
+            text="Qui ut enim cillum dolor duis ad sunt est officia laborum dolor qui."
+            buttonText="Login"
+          />
+        )}
+        {activeTab === 1 && (
+          <TabContent
+            text="Deserunt adipisicing nulla qui cillum cupidatat enim id ut mollit nulla reprehenderit."
+            buttonText="Admin Login"
+          />
+        )}
       </div>
     </div>
   );
