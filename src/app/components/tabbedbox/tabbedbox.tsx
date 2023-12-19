@@ -33,12 +33,14 @@ const TabbedBox: React.FC = () => {
           <TabContent
             text="Qui ut enim cillum dolor duis ad sunt est officia laborum dolor qui."
             buttonText="Login"
+            link="/login"
           />
         )}
         {activeTab === 1 && (
           <TabContent
             text="Deserunt adipisicing nulla qui cillum cupidatat enim id ut mollit nulla reprehenderit."
             buttonText="Admin Login"
+            link="/admin/login"
           />
         )}
       </div>
