@@ -1,6 +1,28 @@
+"use client";
+import api from "@/app/api";
 import styles from "./dashboard.module.scss";
+import { useEffect, useState } from "react";
+
+interface driverData {
+  name: string;
+}
 
 export default function Dashboard() {
+  const [data, setData] = useState<driverData[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get<driverData[]>("/drivers/3");
+        setData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className={styles.dashCon}>
       <div className={styles.quickviewContainer}>
@@ -9,7 +31,7 @@ export default function Dashboard() {
             <span>Drivers</span>
           </div>
           <div className={styles.statConBody}>
-            <span>5</span>
+            <span>{data.name}</span>
           </div>
         </div>
 
