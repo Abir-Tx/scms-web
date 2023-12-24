@@ -13,7 +13,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await api.get<driverData[]>("/drivers/3");
+        const response = await api.get<driverData[]>("/drivers");
         setData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -31,7 +31,7 @@ export default function Dashboard() {
             <span>Drivers</span>
           </div>
           <div className={styles.statConBody}>
-            <span>{data.name}</span>
+            <span>{data.length}</span>
           </div>
         </div>
 
