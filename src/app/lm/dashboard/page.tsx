@@ -2,6 +2,7 @@
 import api from "@/app/api";
 import styles from "./dashboard.module.scss";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 interface driverData {
   name: string;
@@ -102,6 +103,14 @@ export default function Dashboard() {
 
       <div className={styles.welcomeCon}>
         <h1>Welcome {driverData[0]?.name.toUpperCase()}</h1>
+      </div>
+
+      <div className={styles.getAllCon}>
+        <div className={styles.buttonCon}>
+          <Link href="/lm/drivers">
+            <button className={styles.button}>Get All Drivers</button>
+          </Link>
+        </div>
       </div>
 
       <div className={styles.shipmentDetCon}>
