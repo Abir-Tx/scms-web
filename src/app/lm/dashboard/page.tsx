@@ -7,14 +7,21 @@ interface driverData {
   name: string;
 }
 
+interface vehicleData {
+  status: string;
+}
+
 export default function Dashboard() {
-  const [data, setData] = useState<driverData[]>([]);
+  const [driverData, setData] = useState<driverData[]>([]);
+  const [vehicleData, setVehicleData] = useState<vehicleData[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await api.get<driverData[]>("/drivers");
+        const vehicleResponse = await api.get<vehicleData[]>("/transports");
         setData(response.data);
+        setVehicleData(vehicleResponse.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -31,7 +38,7 @@ export default function Dashboard() {
             <span>Drivers</span>
           </div>
           <div className={styles.statConBody}>
-            <span>{data.length}</span>
+            <span>{driverData.length}</span>
           </div>
         </div>
 
@@ -40,7 +47,7 @@ export default function Dashboard() {
             <span>Vehicles</span>
           </div>
           <div className={styles.statConBody}>
-            <span>10</span>
+            <span>{vehicleData.length}</span>
           </div>
         </div>
       </div>
