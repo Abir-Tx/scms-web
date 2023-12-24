@@ -71,6 +71,42 @@ export default function Dashboard() {
       <div className={styles.welcomeCon}>
         <h1>Welcome {driverData[0]?.name.toUpperCase()}</h1>
       </div>
+
+      <div className={styles.shipmentDetCon}>
+        <div className={styles.shipmentDetHeader}>
+          <h2>Shipments</h2>
+        </div>
+
+        {/* cards showing quick snippets about shipment details */}
+        <div className={styles.shipmentDetCards}>
+          <div className={styles.shipmentDetCard}>
+            <div className={styles.shipmentDetCardHeader}>
+              <h3>Delivered</h3>
+            </div>
+            <div className={styles.shipmentDetCardBody}>
+              <span>0</span>
+            </div>
+          </div>
+
+          <div className={styles.shipmentDetCard}>
+            <div className={styles.shipmentDetCardHeader}>
+              <h3>On Transit</h3>
+            </div>
+            <div className={styles.shipmentDetCardBody}>
+              <span>0</span>
+            </div>
+          </div>
+
+          <div className={styles.shipmentDetCard}>
+            <div className={styles.shipmentDetCardHeader}>
+              <h3>Cancelled</h3>
+            </div>
+            <div className={styles.shipmentDetCardBody}>
+              <span>0</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
