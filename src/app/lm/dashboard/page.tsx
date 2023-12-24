@@ -19,6 +19,15 @@ export default function Dashboard() {
   const [driverData, setData] = useState<driverData[]>([]);
   const [vehicleData, setVehicleData] = useState<vehicleData[]>([]);
   const [shipmentData, setShipmentData] = useState<shipmentData[]>([]);
+  const [deliveredShipments, setDeliveredShipments] = useState<shipmentData[]>(
+    []
+  );
+  const [onTransitShipments, setOnTransitShipments] = useState<shipmentData[]>(
+    []
+  );
+  const [cancelledShipments, setCancelledShipments] = useState<shipmentData[]>(
+    []
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +38,22 @@ export default function Dashboard() {
         setData(response.data);
         setVehicleData(vehicleResponse.data);
         setShipmentData(shipmentResponse.data);
+
+        // get only the pending shipments
+        const result = shipmentResponse.data.filter(
+          (shipment) => shipment.status === "Delivered"
+        );
+        setDeliveredShipments(result);
+
+        const onTransitResult = shipmentResponse.data.filter(
+          (shipment) => shipment.status === "In Transit"
+        );
+        setOnTransitShipments(onTransitResult);
+
+        const cancelledResult = shipmentResponse.data.filter(
+          (shipment) => shipment.status === "Cancelled"
+        );
+        setCancelledShipments(cancelledResult);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -84,7 +109,7 @@ export default function Dashboard() {
               <h3>Delivered</h3>
             </div>
             <div className={styles.shipmentDetCardBody}>
-              <span>0</span>
+              <span>{deliveredShipments.length}</span>
             </div>
           </div>
 
@@ -93,7 +118,7 @@ export default function Dashboard() {
               <h3>On Transit</h3>
             </div>
             <div className={styles.shipmentDetCardBody}>
-              <span>0</span>
+              <span>{onTransitShipments.length}</span>
             </div>
           </div>
 
@@ -102,7 +127,7 @@ export default function Dashboard() {
               <h3>Cancelled</h3>
             </div>
             <div className={styles.shipmentDetCardBody}>
-              <span>0</span>
+              <span>{cancelledShipments.length}</span>
             </div>
           </div>
         </div>
