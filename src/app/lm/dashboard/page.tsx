@@ -28,6 +28,7 @@ export default function Dashboard() {
   const [cancelledShipments, setCancelledShipments] = useState<shipmentData[]>(
     []
   );
+  const [pendingTransports, setPendingTransports] = useState<vehicleData[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,6 +55,12 @@ export default function Dashboard() {
           (shipment) => shipment.status === "Cancelled"
         );
         setCancelledShipments(cancelledResult);
+
+        // Get pending transports
+        const pendingTransports = vehicleResponse.data.filter(
+          (vehicle) => vehicle.status === "pending"
+        );
+        setPendingTransports(pendingTransports);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -144,7 +151,9 @@ export default function Dashboard() {
               {/* <h3>Vehicle</h3> */}
             </div>
             <div className={styles.transportDetCardBody}>
-              <span>You have 0 pending transports</span>
+              <span>
+                You have {pendingTransports.length} pending transports
+              </span>
             </div>
           </div>
         </div>
