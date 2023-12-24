@@ -51,6 +51,10 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      <div className={styles.welcomeCon}>
+        <h1>Welcome {driverData[0]?.name.toUpperCase()}</h1>
+      </div>
     </div>
   );
 }

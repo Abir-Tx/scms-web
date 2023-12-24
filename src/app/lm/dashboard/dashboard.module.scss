@@ -33,4 +33,14 @@
       }
     }
   }
+
+  .welcomeCon {
+    width: 100%;
+    display: flex;
+    padding: 30px;
+    h1 {
+      font-size: 3rem;
+      font-weight: bolder;
+    }
+  }
 }
