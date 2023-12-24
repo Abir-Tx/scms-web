@@ -86,4 +86,47 @@
       }
     }
   }
+
+  .transportDetCon {
+    .transportDetHeader {
+      h2 {
+        text-align: center;
+        padding: 10px;
+        background-color: rgb(85, 85, 85);
+        font-size: 2rem;
+        font-weight: bolder;
+      }
+    }
+
+    .transportDetCard {
+      padding: 30px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      .transportDetCard {
+        padding: 30px;
+        border-radius: 25px;
+        background-color: rgb(38, 36, 36);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        .transportDetCardHeader {
+          h3 {
+            font-size: larger;
+            color: rgb(87, 85, 85);
+          }
+        }
+        .transportDetCardBody {
+          background-color: red;
+          span {
+            font-size: 4rem;
+            font-weight: bolder;
+          }
+        }
+      }
+    }
+  }
 }

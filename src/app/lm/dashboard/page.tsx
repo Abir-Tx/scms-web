@@ -132,6 +132,23 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      <div className={styles.transportDetCon}>
+        <div className={styles.transportDetHeader}>
+          <h2>Transport Details</h2>
+        </div>
+
+        <div className={styles.transportDetBody}>
+          <div className={styles.transportDetCard}>
+            <div className={styles.transportDetCardHeader}>
+              {/* <h3>Vehicle</h3> */}
+            </div>
+            <div className={styles.transportDetCardBody}>
+              <span>You have 0 pending transports</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
