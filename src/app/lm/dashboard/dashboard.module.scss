@@ -47,11 +47,11 @@
     width: 100%;
     padding: 30px;
 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
     .buttonCon {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
       button {
         width: 70%;
         height: 50%;

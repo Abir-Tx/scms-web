@@ -56,6 +56,29 @@ const DriverSearch: React.FC = () => {
     }
   };
 
+  const handleDeleteDriver = async () => {
+    if (!selectedDriver) return;
+
+    const confirmDelete = window.confirm(
+      `Are you sure you want to delete ${selectedDriver.name}?`
+    );
+    if (confirmDelete) {
+      try {
+        // Make a DELETE request to your API to delete the selected driver
+        await api.delete(`/drivers/${selectedDriver.id}`);
+        // refresh the list of drivers after deletion
+        const updatedDrivers = drivers.filter(
+          (driver) => driver.id !== selectedDriver.id
+        );
+        setDrivers(updatedDrivers);
+        setSelectedDriver(null); // Clear the selected driver after deletion
+      } catch (error) {
+        console.error("Error deleting driver:", error);
+        alert("Error deleting driver");
+      }
+    }
+  };
+
   return (
     <div className={styles.container}>
       <h1>Driver Search</h1>
@@ -111,6 +134,11 @@ const DriverSearch: React.FC = () => {
           <p>Notes: {selectedDriver.notes}</p>
           <p>Address: {selectedDriver.address}</p>
           <p>Availability: {selectedDriver.availability ? "Yes" : "No"}</p>
+
+          {/* Delete button */}
+          <button className={styles.deleteButton} onClick={handleDeleteDriver}>
+            Delete
+          </button>
         </div>
       )}
     </div>
