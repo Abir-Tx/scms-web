@@ -154,7 +154,6 @@ const DriverSearch: React.FC = () => {
               >
                 <td>{driver.name}</td>
                 <td>{driver.contactNumber}</td>
-                {/* Add other relevant table data */}
               </tr>
             ))}
           </tbody>
@@ -168,32 +167,79 @@ const DriverSearch: React.FC = () => {
           {isEditing ? (
             <>
               {/* Editable fields */}
-              <label>Name:</label>
-              <input
-                type="text"
-                value={editedDriver?.name || ""}
-                onChange={(e) => handleInputChange("name", e.target.value)}
-              />
-              <label>Contact Number:</label>
-              <input
-                type="text"
-                value={editedDriver?.contactNumber || ""}
-                onChange={(e) =>
-                  handleInputChange("contactNumber", e.target.value)
-                }
-              />
-              {/* Add other editable fields as needed */}
+              <div className={styles.editDetCon}>
+                <label>Name:</label>
+                <input
+                  type="text"
+                  value={editedDriver?.name || ""}
+                  onChange={(e) => handleInputChange("name", e.target.value)}
+                />
+                {/* Email */}
+                <label>Email:</label>
+                <input
+                  type="text"
+                  value={editedDriver?.email || ""}
+                  onChange={(e) => handleInputChange("email", e.target.value)}
+                />
+                <label>Contact Number:</label>
+                <input
+                  type="text"
+                  value={editedDriver?.contactNumber || ""}
+                  onChange={(e) =>
+                    handleInputChange("contactNumber", e.target.value)
+                  }
+                />
+                <label>License Number:</label>
+                <input
+                  type="text"
+                  value={editedDriver?.licenseNumber || ""}
+                  onChange={(e) =>
+                    handleInputChange("licenseNumber", e.target.value)
+                  }
+                />
+                <label>Vehicle ID:</label>
+                <input
+                  type="text"
+                  value={editedDriver?.vehicleId || ""}
+                  onChange={(e) =>
+                    handleInputChange("vehicleId", e.target.value)
+                  }
+                />
+                <label>Notes:</label>
+                <input
+                  type="text"
+                  value={editedDriver?.notes || ""}
+                  onChange={(e) => handleInputChange("notes", e.target.value)}
+                />
+                <label>Address:</label>
+                <input
+                  type="text"
+                  value={editedDriver?.address || ""}
+                  onChange={(e) => handleInputChange("address", e.target.value)}
+                />
+                <label>Availability:</label>
+                <input
+                  type="checkbox"
+                  checked={editedDriver?.availability || false}
+                  onChange={(e) =>
+                    handleInputChange(
+                      "availability",
+                      e.target.checked.toString()
+                    )
+                  }
+                />
 
-              {/* Save and Cancel buttons */}
-              <button className={styles.saveButton} onClick={handleSaveEdit}>
-                Save
-              </button>
-              <button
-                className={styles.cancelButton}
-                onClick={handleCancelEdit}
-              >
-                Cancel
-              </button>
+                {/* Save and Cancel buttons */}
+                <button className={styles.saveButton} onClick={handleSaveEdit}>
+                  Save
+                </button>
+                <button
+                  className={styles.cancelButton}
+                  onClick={handleCancelEdit}
+                >
+                  Cancel
+                </button>
+              </div>
             </>
           ) : (
             <>
