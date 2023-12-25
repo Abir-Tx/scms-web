@@ -117,6 +117,12 @@ export default function Dashboard() {
             <button className={styles.button}>Driver Search</button>
           </Link>
         </div>
+
+        <div className={styles.buttonCon}>
+          <Link href="/lm/transports">
+            <button className={styles.button}>Get All Vehicles</button>
+          </Link>
+        </div>
       </div>
 
       <div className={styles.shipmentDetCon}>
