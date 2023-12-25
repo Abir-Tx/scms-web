@@ -3,6 +3,7 @@ import api from "@/app/api";
 import styles from "./dashboard.module.scss";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { AnimatedPage } from "@/app/components/animated-page";
 
 interface driverData {
   name: string;
@@ -71,114 +72,116 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className={styles.dashCon}>
-      <div className={styles.quickviewContainer}>
-        <div className={styles.statCon}>
-          <div className={styles.statHeader}>
-            <span>Drivers</span>
+    <AnimatedPage>
+      <div className={styles.dashCon}>
+        <div className={styles.quickviewContainer}>
+          <div className={styles.statCon}>
+            <div className={styles.statHeader}>
+              <span>Drivers</span>
+            </div>
+            <div className={styles.statConBody}>
+              <span>{driverData.length}</span>
+            </div>
           </div>
-          <div className={styles.statConBody}>
-            <span>{driverData.length}</span>
+
+          <div className={styles.statCon}>
+            <div className={styles.statHeader}>
+              <span>Vehicles</span>
+            </div>
+            <div className={styles.statConBody}>
+              <span>{vehicleData.length}</span>
+            </div>
+          </div>
+
+          <div className={styles.statCon}>
+            <div className={styles.statHeader}>
+              <span>Shipments</span>
+            </div>
+            <div className={styles.statConBody}>
+              <span>{shipmentData.length}</span>
+            </div>
           </div>
         </div>
 
-        <div className={styles.statCon}>
-          <div className={styles.statHeader}>
-            <span>Vehicles</span>
+        <div className={styles.welcomeCon}>
+          <h1>Welcome {driverData[0]?.name.toUpperCase()}</h1>
+        </div>
+
+        <div className={styles.getAllCon}>
+          <div className={styles.buttonCon}>
+            <Link href="/lm/drivers">
+              <button className={styles.button}>Get All Drivers</button>
+            </Link>
           </div>
-          <div className={styles.statConBody}>
-            <span>{vehicleData.length}</span>
+
+          <div className={styles.buttonCon}>
+            <Link href="/lm/drivers/search">
+              <button className={styles.button}>Driver Search</button>
+            </Link>
+          </div>
+
+          <div className={styles.buttonCon}>
+            <Link href="/lm/transports">
+              <button className={styles.button}>Get All Vehicles</button>
+            </Link>
           </div>
         </div>
 
-        <div className={styles.statCon}>
-          <div className={styles.statHeader}>
-            <span>Shipments</span>
+        <div className={styles.shipmentDetCon}>
+          <div className={styles.shipmentDetHeader}>
+            <h2>Shipments</h2>
           </div>
-          <div className={styles.statConBody}>
-            <span>{shipmentData.length}</span>
+
+          {/* cards showing quick snippets about shipment details */}
+          <div className={styles.shipmentDetCards}>
+            <div className={styles.shipmentDetCard}>
+              <div className={styles.shipmentDetCardHeader}>
+                <h3>Delivered</h3>
+              </div>
+              <div className={styles.shipmentDetCardBody}>
+                <span>{deliveredShipments.length}</span>
+              </div>
+            </div>
+
+            <div className={styles.shipmentDetCard}>
+              <div className={styles.shipmentDetCardHeader}>
+                <h3>On Transit</h3>
+              </div>
+              <div className={styles.shipmentDetCardBody}>
+                <span>{onTransitShipments.length}</span>
+              </div>
+            </div>
+
+            <div className={styles.shipmentDetCard}>
+              <div className={styles.shipmentDetCardHeader}>
+                <h3>Cancelled</h3>
+              </div>
+              <div className={styles.shipmentDetCardBody}>
+                <span>{cancelledShipments.length}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.transportDetCon}>
+          <div className={styles.transportDetHeader}>
+            <h2>Transport Details</h2>
+          </div>
+
+          <div className={styles.transportDetBody}>
+            <div className={styles.transportDetCard}>
+              <div className={styles.transportDetCardHeader}>
+                {/* <h3>Vehicle</h3> */}
+              </div>
+              <div className={styles.transportDetCardBody}>
+                <span>
+                  You have {pendingTransports.length} pending transports
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <div className={styles.welcomeCon}>
-        <h1>Welcome {driverData[0]?.name.toUpperCase()}</h1>
-      </div>
-
-      <div className={styles.getAllCon}>
-        <div className={styles.buttonCon}>
-          <Link href="/lm/drivers">
-            <button className={styles.button}>Get All Drivers</button>
-          </Link>
-        </div>
-
-        <div className={styles.buttonCon}>
-          <Link href="/lm/drivers/search">
-            <button className={styles.button}>Driver Search</button>
-          </Link>
-        </div>
-
-        <div className={styles.buttonCon}>
-          <Link href="/lm/transports">
-            <button className={styles.button}>Get All Vehicles</button>
-          </Link>
-        </div>
-      </div>
-
-      <div className={styles.shipmentDetCon}>
-        <div className={styles.shipmentDetHeader}>
-          <h2>Shipments</h2>
-        </div>
-
-        {/* cards showing quick snippets about shipment details */}
-        <div className={styles.shipmentDetCards}>
-          <div className={styles.shipmentDetCard}>
-            <div className={styles.shipmentDetCardHeader}>
-              <h3>Delivered</h3>
-            </div>
-            <div className={styles.shipmentDetCardBody}>
-              <span>{deliveredShipments.length}</span>
-            </div>
-          </div>
-
-          <div className={styles.shipmentDetCard}>
-            <div className={styles.shipmentDetCardHeader}>
-              <h3>On Transit</h3>
-            </div>
-            <div className={styles.shipmentDetCardBody}>
-              <span>{onTransitShipments.length}</span>
-            </div>
-          </div>
-
-          <div className={styles.shipmentDetCard}>
-            <div className={styles.shipmentDetCardHeader}>
-              <h3>Cancelled</h3>
-            </div>
-            <div className={styles.shipmentDetCardBody}>
-              <span>{cancelledShipments.length}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.transportDetCon}>
-        <div className={styles.transportDetHeader}>
-          <h2>Transport Details</h2>
-        </div>
-
-        <div className={styles.transportDetBody}>
-          <div className={styles.transportDetCard}>
-            <div className={styles.transportDetCardHeader}>
-              {/* <h3>Vehicle</h3> */}
-            </div>
-            <div className={styles.transportDetCardBody}>
-              <span>
-                You have {pendingTransports.length} pending transports
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </AnimatedPage>
   );
 }

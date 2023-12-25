@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import api from "@/app/api";
 import styles from "./search.module.scss"; // Import SCSS styles
+import { AnimatedPage } from "@/app/components/animated-page";
 
 interface DriverData {
   name: string;
@@ -120,156 +121,168 @@ const DriverSearch: React.FC = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1>Driver Search</h1>
-      <div className={styles.inputContainer}>
-        {/* Search input and button */}
-        <input
-          type="text"
-          placeholder="Search by name..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <button className={styles.button} onClick={handleSearch}>
-          Search
-        </button>
-      </div>
-
-      {/* Table of drivers */}
-      <div className={styles.tableContainer}>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Contact Number</th>
-              {/* Add other relevant table headers */}
-            </tr>
-          </thead>
-          <tbody>
-            {filteredDrivers.map((driver) => (
-              <tr
-                key={driver.id}
-                onClick={() => handleDriverClick(driver.id)}
-                className={styles.row} // Add a row class for styling
-              >
-                <td>{driver.name}</td>
-                <td>{driver.contactNumber}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Selected driver details */}
-      {selectedDriver && (
-        <div className={styles.driverDetails}>
-          <h2>Driver Details</h2>
-          {isEditing ? (
-            <>
-              {/* Editable fields */}
-              <div className={styles.editDetCon}>
-                <label>Name:</label>
-                <input
-                  type="text"
-                  value={editedDriver?.name || ""}
-                  onChange={(e) => handleInputChange("name", e.target.value)}
-                />
-                {/* Email */}
-                <label>Email:</label>
-                <input
-                  type="text"
-                  value={editedDriver?.email || ""}
-                  onChange={(e) => handleInputChange("email", e.target.value)}
-                />
-                <label>Contact Number:</label>
-                <input
-                  type="text"
-                  value={editedDriver?.contactNumber || ""}
-                  onChange={(e) =>
-                    handleInputChange("contactNumber", e.target.value)
-                  }
-                />
-                <label>License Number:</label>
-                <input
-                  type="text"
-                  value={editedDriver?.licenseNumber || ""}
-                  onChange={(e) =>
-                    handleInputChange("licenseNumber", e.target.value)
-                  }
-                />
-                <label>Vehicle ID:</label>
-                <input
-                  type="text"
-                  value={editedDriver?.vehicleId || ""}
-                  onChange={(e) =>
-                    handleInputChange("vehicleId", e.target.value)
-                  }
-                />
-                <label>Notes:</label>
-                <input
-                  type="text"
-                  value={editedDriver?.notes || ""}
-                  onChange={(e) => handleInputChange("notes", e.target.value)}
-                />
-                <label>Address:</label>
-                <input
-                  type="text"
-                  value={editedDriver?.address || ""}
-                  onChange={(e) => handleInputChange("address", e.target.value)}
-                />
-                <label>Availability:</label>
-                <input
-                  type="checkbox"
-                  checked={editedDriver?.availability || false}
-                  onChange={(e) =>
-                    handleInputChange(
-                      "availability",
-                      e.target.checked.toString()
-                    )
-                  }
-                />
-
-                {/* Save and Cancel buttons */}
-                <button className={styles.saveButton} onClick={handleSaveEdit}>
-                  Save
-                </button>
-                <button
-                  className={styles.cancelButton}
-                  onClick={handleCancelEdit}
-                >
-                  Cancel
-                </button>
-              </div>
-            </>
-          ) : (
-            <>
-              {/* Display details */}
-              <p>ID: {selectedDriver.id}</p>
-              <p>Name: {selectedDriver.name}</p>
-              <p>Contact Number: {selectedDriver.contactNumber}</p>
-              <p>Email: {selectedDriver.email}</p>
-              <p>License Number: {selectedDriver.licenseNumber}</p>
-              <p>Vehicle ID: {selectedDriver.vehicleId}</p>
-              <p>Notes: {selectedDriver.notes}</p>
-              <p>Address: {selectedDriver.address}</p>
-              <p>Availability: {selectedDriver.availability ? "Yes" : "No"}</p>
-
-              {/* Delete button */}
-              <button
-                className={styles.deleteButton}
-                onClick={handleDeleteDriver}
-              >
-                Delete
-              </button>
-              {/* Edit button */}
-              <button className={styles.editButton} onClick={handleEditDriver}>
-                Edit
-              </button>
-            </>
-          )}
+    <AnimatedPage>
+      <div className={styles.container}>
+        <h1>Driver Search</h1>
+        <div className={styles.inputContainer}>
+          {/* Search input and button */}
+          <input
+            type="text"
+            placeholder="Search by name..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button className={styles.button} onClick={handleSearch}>
+            Search
+          </button>
         </div>
-      )}
-    </div>
+
+        {/* Table of drivers */}
+        <div className={styles.tableContainer}>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Contact Number</th>
+                {/* Add other relevant table headers */}
+              </tr>
+            </thead>
+            <tbody>
+              {filteredDrivers.map((driver) => (
+                <tr
+                  key={driver.id}
+                  onClick={() => handleDriverClick(driver.id)}
+                  className={styles.row} // Add a row class for styling
+                >
+                  <td>{driver.name}</td>
+                  <td>{driver.contactNumber}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Selected driver details */}
+        {selectedDriver && (
+          <div className={styles.driverDetails}>
+            <h2>Driver Details</h2>
+            {isEditing ? (
+              <>
+                {/* Editable fields */}
+                <div className={styles.editDetCon}>
+                  <label>Name:</label>
+                  <input
+                    type="text"
+                    value={editedDriver?.name || ""}
+                    onChange={(e) => handleInputChange("name", e.target.value)}
+                  />
+                  {/* Email */}
+                  <label>Email:</label>
+                  <input
+                    type="text"
+                    value={editedDriver?.email || ""}
+                    onChange={(e) => handleInputChange("email", e.target.value)}
+                  />
+                  <label>Contact Number:</label>
+                  <input
+                    type="text"
+                    value={editedDriver?.contactNumber || ""}
+                    onChange={(e) =>
+                      handleInputChange("contactNumber", e.target.value)
+                    }
+                  />
+                  <label>License Number:</label>
+                  <input
+                    type="text"
+                    value={editedDriver?.licenseNumber || ""}
+                    onChange={(e) =>
+                      handleInputChange("licenseNumber", e.target.value)
+                    }
+                  />
+                  <label>Vehicle ID:</label>
+                  <input
+                    type="text"
+                    value={editedDriver?.vehicleId || ""}
+                    onChange={(e) =>
+                      handleInputChange("vehicleId", e.target.value)
+                    }
+                  />
+                  <label>Notes:</label>
+                  <input
+                    type="text"
+                    value={editedDriver?.notes || ""}
+                    onChange={(e) => handleInputChange("notes", e.target.value)}
+                  />
+                  <label>Address:</label>
+                  <input
+                    type="text"
+                    value={editedDriver?.address || ""}
+                    onChange={(e) =>
+                      handleInputChange("address", e.target.value)
+                    }
+                  />
+                  <label>Availability:</label>
+                  <input
+                    type="checkbox"
+                    checked={editedDriver?.availability || false}
+                    onChange={(e) =>
+                      handleInputChange(
+                        "availability",
+                        e.target.checked.toString()
+                      )
+                    }
+                  />
+
+                  {/* Save and Cancel buttons */}
+                  <button
+                    className={styles.saveButton}
+                    onClick={handleSaveEdit}
+                  >
+                    Save
+                  </button>
+                  <button
+                    className={styles.cancelButton}
+                    onClick={handleCancelEdit}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                {/* Display details */}
+                <p>ID: {selectedDriver.id}</p>
+                <p>Name: {selectedDriver.name}</p>
+                <p>Contact Number: {selectedDriver.contactNumber}</p>
+                <p>Email: {selectedDriver.email}</p>
+                <p>License Number: {selectedDriver.licenseNumber}</p>
+                <p>Vehicle ID: {selectedDriver.vehicleId}</p>
+                <p>Notes: {selectedDriver.notes}</p>
+                <p>Address: {selectedDriver.address}</p>
+                <p>
+                  Availability: {selectedDriver.availability ? "Yes" : "No"}
+                </p>
+
+                {/* Delete button */}
+                <button
+                  className={styles.deleteButton}
+                  onClick={handleDeleteDriver}
+                >
+                  Delete
+                </button>
+                {/* Edit button */}
+                <button
+                  className={styles.editButton}
+                  onClick={handleEditDriver}
+                >
+                  Edit
+                </button>
+              </>
+            )}
+          </div>
+        )}
+      </div>
+    </AnimatedPage>
   );
 };
 
