@@ -1,9 +1,18 @@
 // Navbar.jsx
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./navbar.module.scss";
+import Logout from "../logout/logout";
 
 export default function Navbar() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check if the email is already set in local storage
+    const storedEmail = localStorage.getItem("email");
+    setIsLoggedIn(!!storedEmail);
+  }, []);
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
@@ -38,6 +47,10 @@ export default function Navbar() {
             </li>
             <li className={styles.navitem}>
               <Link href="/lm/drivers">Drivers</Link>
+            </li>
+            <li className={styles.navitem}>
+              {/* Conditionally show logout  */}
+              {isLoggedIn ? <Logout /> : <Link href="/login">Login</Link>}
             </li>
           </ul>
         </div>
