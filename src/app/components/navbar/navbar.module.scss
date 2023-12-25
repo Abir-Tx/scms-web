@@ -1,0 +1,74 @@
+// navbar.module.scss
+
+.navbar {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbarBrand {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.navbartogglericon {
+  //   display: inline-block;
+  //   width: 30px;
+  //   height: 3px;
+  //   background-color: white;
+  //   margin: 6px 0;
+}
+
+.collapse {
+  display: flex;
+  align-items: center;
+}
+
+.navbarNav {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin: 0;
+}
+
+.navitem {
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #555;
+  }
+}
+
+// Media query for mobile view
+@media (max-width: 768px) {
+  .collapse {
+    display: block;
+  }
+
+  .navbarNav {
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 60px; // Adjust as needed
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .navitem {
+    width: 100%;
+    text-align: center;
+  }
+}
