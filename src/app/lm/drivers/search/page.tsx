@@ -24,6 +24,8 @@ const DriverSearch: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedDriver, setSelectedDriver] = useState<DriverData | null>(null);
   const [filteredDrivers, setFilteredDrivers] = useState<DriverData[]>([]);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedDriver, setEditedDriver] = useState<DriverData | null>(null);
 
   useEffect(() => {
     const fetchDrivers = async () => {
@@ -79,6 +81,44 @@ const DriverSearch: React.FC = () => {
     }
   };
 
+  const handleEditDriver = () => {
+    setIsEditing(true);
+    setEditedDriver({ ...selectedDriver }); // Create a copy of the selected driver for editing
+  };
+
+  const handleSaveEdit = async () => {
+    if (!editedDriver) return;
+
+    try {
+      // Make a PUT or PATCH request to update the selected driver
+      await api.put(`/drivers/${editedDriver.id}`, editedDriver);
+      // Optionally, you can also refresh the list of drivers after editing
+      const updatedDrivers = drivers.map((driver) =>
+        driver.id === editedDriver.id ? editedDriver : driver
+      );
+      setDrivers(updatedDrivers);
+      setSelectedDriver(editedDriver); // Update the selected driver in the UI
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Error editing driver:", error);
+      alert("Error editing driver");
+    }
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditing(false);
+    setEditedDriver(null);
+  };
+
+  const handleInputChange = (field: keyof DriverData, value: string) => {
+    if (editedDriver) {
+      setEditedDriver({
+        ...editedDriver,
+        [field]: value,
+      });
+    }
+  };
+
   return (
     <div className={styles.container}>
       <h1>Driver Search</h1>
@@ -125,20 +165,62 @@ const DriverSearch: React.FC = () => {
       {selectedDriver && (
         <div className={styles.driverDetails}>
           <h2>Driver Details</h2>
-          <p>ID: {selectedDriver.id}</p>
-          <p>Name: {selectedDriver.name}</p>
-          <p>Contact Number: {selectedDriver.contactNumber}</p>
-          <p>Email: {selectedDriver.email}</p>
-          <p>License Number: {selectedDriver.licenseNumber}</p>
-          <p>Vehicle ID: {selectedDriver.vehicleId}</p>
-          <p>Notes: {selectedDriver.notes}</p>
-          <p>Address: {selectedDriver.address}</p>
-          <p>Availability: {selectedDriver.availability ? "Yes" : "No"}</p>
+          {isEditing ? (
+            <>
+              {/* Editable fields */}
+              <label>Name:</label>
+              <input
+                type="text"
+                value={editedDriver?.name || ""}
+                onChange={(e) => handleInputChange("name", e.target.value)}
+              />
+              <label>Contact Number:</label>
+              <input
+                type="text"
+                value={editedDriver?.contactNumber || ""}
+                onChange={(e) =>
+                  handleInputChange("contactNumber", e.target.value)
+                }
+              />
+              {/* Add other editable fields as needed */}
 
-          {/* Delete button */}
-          <button className={styles.deleteButton} onClick={handleDeleteDriver}>
-            Delete
-          </button>
+              {/* Save and Cancel buttons */}
+              <button className={styles.saveButton} onClick={handleSaveEdit}>
+                Save
+              </button>
+              <button
+                className={styles.cancelButton}
+                onClick={handleCancelEdit}
+              >
+                Cancel
+              </button>
+            </>
+          ) : (
+            <>
+              {/* Display details */}
+              <p>ID: {selectedDriver.id}</p>
+              <p>Name: {selectedDriver.name}</p>
+              <p>Contact Number: {selectedDriver.contactNumber}</p>
+              <p>Email: {selectedDriver.email}</p>
+              <p>License Number: {selectedDriver.licenseNumber}</p>
+              <p>Vehicle ID: {selectedDriver.vehicleId}</p>
+              <p>Notes: {selectedDriver.notes}</p>
+              <p>Address: {selectedDriver.address}</p>
+              <p>Availability: {selectedDriver.availability ? "Yes" : "No"}</p>
+
+              {/* Delete button */}
+              <button
+                className={styles.deleteButton}
+                onClick={handleDeleteDriver}
+              >
+                Delete
+              </button>
+              {/* Edit button */}
+              <button className={styles.editButton} onClick={handleEditDriver}>
+                Edit
+              </button>
+            </>
+          )}
         </div>
       )}
     </div>
