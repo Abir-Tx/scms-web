@@ -40,7 +40,7 @@ export default function Navbar() {
               <Link href="/lm/dashboard">Dashboard</Link>
             </li>
             <li className={styles.navitem}>
-              <Link href="/shipments">Shipments</Link>
+              <Link href="/lm/shipments">Shipments</Link>
             </li>
             <li className={styles.navitem}>
               <Link href="/lm/transports">Transports</Link>
