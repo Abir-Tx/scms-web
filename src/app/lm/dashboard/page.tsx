@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatedPage } from "@/app/components/animated-page";
 import Modal from "react-modal";
-import { color } from "framer-motion";
 interface driverData {
   name: string;
 }
