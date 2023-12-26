@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./drivers.module.scss";
 import api from "@/app/api";
 import { AnimatedPage } from "@/app/components/animated-page";
+import { useRouter } from "next/navigation";
 
 interface driverData {
   name: string;
@@ -19,6 +20,7 @@ interface driverData {
 }
 
 export default function Drivers() {
+  const router = useRouter();
   const [driverData, setData] = useState<driverData[]>([]);
   const [showAddForm, setShowAddForm] = useState(false);
   const [newDriverData, setNewDriverData] = useState<Partial<driverData>>({
@@ -99,6 +101,14 @@ export default function Drivers() {
     }
   };
 
+  /**
+   * Navigates to the driver details page.
+   * @param id - The ID of the driver.
+   */
+  const navigateToDriverDetails = (id: number) => {
+    router.push(`/lm/driver/${id}`);
+  };
+
   return (
     <AnimatedPage>
       <div className={styles.driverManCon}>
@@ -120,7 +130,10 @@ export default function Drivers() {
           </thead>
           <tbody>
             {driverData.map((driver) => (
-              <tr key={driver.id}>
+              <tr
+                key={driver.id}
+                onClick={() => navigateToDriverDetails(driver.id)}
+              >
                 <td>{driver.name}</td>
                 <td>{driver.contactNumber}</td>
                 <td>{driver.licenseNumber}</td>
@@ -150,6 +163,7 @@ export default function Drivers() {
               onChange={(e) =>
                 setNewDriverData({ ...newDriverData, name: e.target.value })
               }
+              title="Name"
             />
 
             <label>Contact Number:</label>
@@ -162,6 +176,7 @@ export default function Drivers() {
                   contactNumber: e.target.value,
                 })
               }
+              title="Contact Number"
             />
 
             <label>License Number:</label>
@@ -174,6 +189,7 @@ export default function Drivers() {
                   licenseNumber: e.target.value,
                 })
               }
+              title="License Number"
             />
 
             <label>Availability:</label>
@@ -186,6 +202,7 @@ export default function Drivers() {
                   availability: e.target.checked,
                 })
               }
+              title="Availability"
             />
 
             <label>Email:</label>
@@ -195,6 +212,7 @@ export default function Drivers() {
               onChange={(e) =>
                 setNewDriverData({ ...newDriverData, email: e.target.value })
               }
+              title="Email"
             />
 
             <label>Password:</label>
@@ -204,6 +222,7 @@ export default function Drivers() {
               onChange={(e) =>
                 setNewDriverData({ ...newDriverData, password: e.target.value })
               }
+              title="Password"
             />
 
             <label>Vehicle ID:</label>
@@ -216,6 +235,7 @@ export default function Drivers() {
                   vehicleId: parseInt(e.target.value, 10) || 0,
                 })
               }
+              title="Vehicle ID"
             />
 
             <label>Notes:</label>
@@ -225,6 +245,7 @@ export default function Drivers() {
               onChange={(e) =>
                 setNewDriverData({ ...newDriverData, notes: e.target.value })
               }
+              title="Notes"
             />
 
             <label>Photo:</label>
@@ -234,6 +255,7 @@ export default function Drivers() {
               onChange={(e) =>
                 setNewDriverData({ ...newDriverData, photo: e.target.value })
               }
+              title="Photo"
             />
 
             <label>Address:</label>
@@ -243,6 +265,7 @@ export default function Drivers() {
               onChange={(e) =>
                 setNewDriverData({ ...newDriverData, address: e.target.value })
               }
+              title="Address"
             />
 
             <label>ID:</label>
@@ -255,6 +278,7 @@ export default function Drivers() {
                   id: parseInt(e.target.value, 10) || 0,
                 })
               }
+              title="ID"
             />
 
             <button type="submit">Submit</button>
