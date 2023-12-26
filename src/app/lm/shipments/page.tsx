@@ -71,8 +71,15 @@ export default function Shipments() {
       const response = await api.get<shipmentData[]>("/shipments");
       setData(response.data);
       setShowAddForm(false);
+      // Show success message
+      window.alert("New shipment has been added successfully.");
     } catch (error) {
       console.log(error);
+
+      // Show error message
+      window.alert(
+        "An error occurred while adding the shipment. Please try again."
+      );
     }
   };
 
