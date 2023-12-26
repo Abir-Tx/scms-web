@@ -1,0 +1,40 @@
+.detCon {
+  color: black;
+  h1 {
+    text-align: center;
+    padding: 30px;
+  }
+  .driverDetailsCon {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .driverDetails {
+      width: 45%; // Adjust as needed
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+      p {
+        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+
+        span {
+          font-weight: 600;
+          color: #333;
+        }
+      }
+    }
+  }
+}
