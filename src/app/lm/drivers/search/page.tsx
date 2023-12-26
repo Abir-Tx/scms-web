@@ -3,7 +3,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import api from "@/app/api";
-import styles from "./search.module.scss"; // Import SCSS styles
+import styles from "./search.module.scss";
 import { AnimatedPage } from "@/app/components/animated-page";
 
 interface DriverData {
@@ -186,6 +186,7 @@ const DriverSearch: React.FC = () => {
                     type="text"
                     value={editedDriver?.name || ""}
                     onChange={(e) => handleInputChange("name", e.target.value)}
+                    title="Name"
                   />
                   {/* Email */}
                   <label>Email:</label>
@@ -193,6 +194,7 @@ const DriverSearch: React.FC = () => {
                     type="text"
                     value={editedDriver?.email || ""}
                     onChange={(e) => handleInputChange("email", e.target.value)}
+                    title="Email"
                   />
                   <label>Contact Number:</label>
                   <input
@@ -201,6 +203,7 @@ const DriverSearch: React.FC = () => {
                     onChange={(e) =>
                       handleInputChange("contactNumber", e.target.value)
                     }
+                    title="Contact Number"
                   />
                   <label>License Number:</label>
                   <input
@@ -209,6 +212,7 @@ const DriverSearch: React.FC = () => {
                     onChange={(e) =>
                       handleInputChange("licenseNumber", e.target.value)
                     }
+                    title="License Number"
                   />
                   <label>Vehicle ID:</label>
                   <input
@@ -217,12 +221,14 @@ const DriverSearch: React.FC = () => {
                     onChange={(e) =>
                       handleInputChange("vehicleId", e.target.value)
                     }
+                    title="Vehicle ID"
                   />
                   <label>Notes:</label>
                   <input
                     type="text"
                     value={editedDriver?.notes || ""}
                     onChange={(e) => handleInputChange("notes", e.target.value)}
+                    title="Notes"
                   />
                   <label>Address:</label>
                   <input
@@ -231,6 +237,7 @@ const DriverSearch: React.FC = () => {
                     onChange={(e) =>
                       handleInputChange("address", e.target.value)
                     }
+                    title="Address"
                   />
                   <label>Availability:</label>
                   <input
@@ -242,6 +249,7 @@ const DriverSearch: React.FC = () => {
                         e.target.checked.toString()
                       )
                     }
+                    title="Availability"
                   />
 
                   {/* Save and Cancel buttons */}
