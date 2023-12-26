@@ -88,6 +88,27 @@ export default function Shipments() {
     setNewShipmentData({ ...newShipmentData, [name]: value });
   };
 
+  // Add this function to handle the delete button click
+  const handleDeleteButtonClick = async (id: number) => {
+    try {
+      await api.delete(`/shipments/${id}`);
+
+      // Fetch updated data after deleting the shipment
+      const response = await api.get<shipmentData[]>("/shipments");
+      setData(response.data);
+
+      // Show success message
+      window.alert("Shipment has been deleted successfully.");
+    } catch (error) {
+      console.log(error);
+
+      // Show error message
+      window.alert(
+        "An error occurred while deleting the shipment. Please try again."
+      );
+    }
+  };
+
   return (
     <AnimatedPage>
       <div className={styles.container}>
@@ -191,6 +212,7 @@ export default function Shipments() {
               <th scope="col">Destination</th>
               <th scope="col">Special Instructions</th>
               <th scope="col">Estimated Arrival Date</th>
+              <th scope="col">Actions</th> {/* Add this line */}
             </tr>
           </thead>
           <tbody>
@@ -203,6 +225,12 @@ export default function Shipments() {
                 <td>{shipment.destination}</td>
                 <td>{shipment.specialInstructions}</td>
                 <td>{shipment.estimatedArrivalDate}</td>
+                <td>
+                  <button onClick={() => handleDeleteButtonClick(shipment.id)}>
+                    Delete
+                  </button>{" "}
+                  {/* Add this line */}
+                </td>
               </tr>
             ))}
           </tbody>
