@@ -27,15 +27,14 @@ export default function RootLayout({
     const storedEmail = localStorage.getItem("email");
     const isLoggedIn = !!storedEmail;
 
-    // Define the routes that require authentication
     const protectedRoutes = [
       "/lm/dashboard",
       "/lm/shipments",
       "/lm/transports",
       "/lm/drivers",
+      "/lm/drivers/search",
     ];
 
-    // If the route requires authentication and the user is not logged in, redirect to the login page
     if (protectedRoutes.includes(pathname) && !isLoggedIn) {
       router.push("/login");
     }
