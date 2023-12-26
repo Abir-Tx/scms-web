@@ -39,6 +39,7 @@ export default function RootLayout({
       router.push("/login");
     }
   }, [pathname, router]);
+
   return (
     <html lang="en">
       <body className={inter.className}>

@@ -91,7 +91,6 @@ export default function Drivers() {
       try {
         await api.delete(`/drivers/${id}`);
 
-        // Fetch updated data after deleting the driver
         const response = await api.get<driverData[]>("/drivers");
         setData(response.data);
       } catch (error) {
