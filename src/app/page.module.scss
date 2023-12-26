@@ -74,10 +74,25 @@
       text-align: justify;
     }
 
-    .tabbedBoxContainer {
+    .subsection {
       display: flex;
-      flex-direction: column;
-      align-items: end;
+      justify-content: space-around;
+      padding: 40px;
+      margin: 40px;
+
+      .imCon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      .tabbedBoxContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        justify-content: center;
+        padding: 20px;
+      }
     }
   }
 }

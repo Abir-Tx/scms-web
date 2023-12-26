@@ -62,8 +62,18 @@ export default function Home() {
             <div className={styles.fourthSectionText}>
               <h1>Personal Portals For Everyone</h1>
             </div>
-            <div className={styles.tabbedBoxContainer}>
-              <TabbedBox />
+            <div className={styles.subsection}>
+              <div className={styles.imCon}>
+                <Image
+                  src="/portal.png"
+                  alt="portal"
+                  width={300}
+                  height={300}
+                />
+              </div>
+              <div className={styles.tabbedBoxContainer}>
+                <TabbedBox />
+              </div>
             </div>
           </div>
         </section>

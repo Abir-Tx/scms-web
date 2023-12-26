@@ -1,0 +1,162 @@
+.dashCon {
+  height: 100vh;
+  .quickviewContainer {
+    width: 100%;
+    height: 30%;
+    background-color: rgb(56, 53, 53);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    .statCon {
+      padding: 30px;
+      border-radius: 25px;
+      height: 50%;
+      background-color: rgb(38, 36, 36);
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      .statHeader {
+        span {
+          font-size: larger;
+          color: rgb(87, 85, 85);
+        }
+      }
+
+      .statConBody {
+        span {
+          font-size: 4rem;
+          font-weight: bolder;
+        }
+      }
+    }
+  }
+
+  .welcomeCon {
+    width: 100%;
+    padding: 30px;
+    h1 {
+      font-size: 3rem;
+      font-weight: bolder;
+    }
+  }
+
+  .getAllCon {
+    width: 100%;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    .buttonCon {
+      button {
+        width: 70%;
+        height: 50%;
+        padding: 30px;
+        border-radius: 25px;
+        background-color: rgb(38, 36, 36);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+    }
+  }
+
+  .shipmentDetCon {
+    .shipmentDetHeader {
+      h2 {
+        text-align: center;
+        padding: 10px;
+        background-color: rgb(85, 85, 85);
+        font-size: 2rem;
+        font-weight: bolder;
+      }
+    }
+
+    .shipmentDetCards {
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      .shipmentDetCard {
+        width: 30%;
+        height: 50%;
+        padding: 30px;
+        border-radius: 25px;
+        background-color: rgb(38, 36, 36);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        .shipmentDetCardHeader {
+          span {
+            font-size: larger;
+            color: rgb(87, 85, 85);
+          }
+        }
+        .shipmentDetCardBody {
+          span {
+            font-size: 4rem;
+            font-weight: bolder;
+          }
+        }
+      }
+    }
+  }
+
+  .transportDetCon {
+    .transportDetHeader {
+      h2 {
+        text-align: center;
+        padding: 10px;
+        background-color: rgb(85, 85, 85);
+        font-size: 2rem;
+        font-weight: bolder;
+      }
+    }
+
+    .transportDetCard {
+      padding: 30px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      cursor: pointer;
+      .transportDetCard {
+        padding: 30px;
+        border-radius: 25px;
+        background-color: rgb(38, 36, 36);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        .transportDetCardHeader {
+          h3 {
+            font-size: larger;
+            color: rgb(87, 85, 85);
+          }
+        }
+        .transportDetCardBody {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          align-items: center;
+
+          span {
+            text-align: center;
+            font-size: 4rem;
+            font-weight: bolder;
+          }
+        }
+      }
+    }
+  }
+}

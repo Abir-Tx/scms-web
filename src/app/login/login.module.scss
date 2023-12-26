@@ -1,0 +1,68 @@
+.loginContainer {
+  .boxContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .box {
+      background-color: #454040;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      width: 100%;
+      max-width: 30rem;
+      margin: 0 auto;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        label {
+          color: #fff;
+          font-size: 1.2rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+
+          padding: 3px;
+        }
+        input {
+          width: 100%;
+          margin-bottom: 1rem;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+          border: 1px solid #ccc;
+        }
+
+        button {
+          width: 100%;
+          margin-bottom: 1rem;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+          border: 1px solid #ccc;
+          background-color: #fff;
+          color: #000;
+          font-size: 1.2rem;
+          font-weight: 700;
+          margin-top: 1.5rem;
+
+          &:hover {
+            background-color: #ccc;
+            color: #fff;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
