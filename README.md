@@ -34,3 +34,7 @@ A project under Advance Web Technology Course under the supervision of @hsazzad-
 ![homepage](https://github.com/Abir-Tx/scms-web/assets/28858998/dd2445ed-4bc6-4a56-9575-12367bb151eb)
 
 ![login_manager_dashboard](https://github.com/Abir-Tx/scms-web/assets/28858998/a23b07f5-f449-4f0c-8157-ca13cf46e342)
+
+## Contributors
+
+- [Abir-Tx](https://github.com/Abir-Tx)
