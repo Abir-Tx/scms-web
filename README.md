@@ -4,6 +4,16 @@ Supply Chain Management System Frontent Website created Using NEXTJS and Bootstr
 
 A project under Advance Web Technology Course under the supervision of @hsazzad-prog Sir
 
+## Features
+
+- Authentication
+- User Management
+- Automatic day-night mode
+
+## Live Demo
+
+[Click to view the live site](https://scms-wheat.vercel.app/)
+
 ## Technical Details
 
 - Language: TypeScript
