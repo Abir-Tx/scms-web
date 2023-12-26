@@ -41,7 +41,6 @@ export default function Drivers() {
       try {
         const response = await api.get<driverData[]>("/drivers");
         setData(response.data);
-        console.log(response.data);
       } catch (error) {
         console.log(error);
       }

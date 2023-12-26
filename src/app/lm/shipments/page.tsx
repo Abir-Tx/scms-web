@@ -49,7 +49,6 @@ export default function Shipments() {
       try {
         const response = await api.get<shipmentData[]>("/shipments");
         setData(response.data);
-        console.log(response.data);
       } catch (error) {
         console.log(error);
       }

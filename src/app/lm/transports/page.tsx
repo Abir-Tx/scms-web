@@ -29,7 +29,6 @@ export default function Transports() {
       try {
         const response = await api.get<transportData[]>("/transports");
         setTransportData(response.data);
-        console.log(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -102,6 +101,7 @@ export default function Transports() {
                   source: e.target.value,
                 })
               }
+              title="Source"
             />
 
             <label>Destination:</label>
@@ -114,6 +114,7 @@ export default function Transports() {
                   destination: e.target.value,
                 })
               }
+              title="Destination"
             />
 
             <label>Requested Date:</label>
@@ -126,6 +127,7 @@ export default function Transports() {
                   requestedDate: e.target.value,
                 })
               }
+              title="Requested Date"
             />
 
             <label>Status:</label>
@@ -138,6 +140,7 @@ export default function Transports() {
                   status: e.target.value,
                 })
               }
+              title="Status"
             />
 
             <button type="submit">Submit</button>
