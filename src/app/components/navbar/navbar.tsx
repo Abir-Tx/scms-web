@@ -36,18 +36,23 @@ export default function Navbar() {
             <li className={styles.navitem}>
               <Link href="/">Home</Link>
             </li>
-            <li className={styles.navitem}>
-              <Link href="/lm/dashboard">Dashboard</Link>
-            </li>
-            <li className={styles.navitem}>
-              <Link href="/lm/shipments">Shipments</Link>
-            </li>
-            <li className={styles.navitem}>
-              <Link href="/lm/transports">Transports</Link>
-            </li>
-            <li className={styles.navitem}>
-              <Link href="/lm/drivers">Drivers</Link>
-            </li>
+
+            {isLoggedIn && (
+              <>
+                <li className={styles.navitem}>
+                  <Link href="/lm/dashboard">Dashboard</Link>
+                </li>
+                <li className={styles.navitem}>
+                  <Link href="/lm/shipments">Shipments</Link>
+                </li>
+                <li className={styles.navitem}>
+                  <Link href="/lm/transports">Transports</Link>
+                </li>
+                <li className={styles.navitem}>
+                  <Link href="/lm/drivers">Drivers</Link>
+                </li>
+              </>
+            )}
             <li className={styles.navitem}>
               {/* Conditionally show logout  */}
               {isLoggedIn ? <Logout /> : <Link href="/login">Login</Link>}
