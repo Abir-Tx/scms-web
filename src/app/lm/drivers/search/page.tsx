@@ -104,14 +104,12 @@ const DriverSearch: React.FC = () => {
     if (!editedDriver) return;
 
     try {
-      // Make a PUT or PATCH request to update the selected driver
       await api.put(`/drivers/${editedDriver.id}`, editedDriver);
-      // Optionally, you can also refresh the list of drivers after editing
       const updatedDrivers = drivers.map((driver) =>
         driver.id === editedDriver.id ? editedDriver : driver
       );
       setDrivers(updatedDrivers);
-      setSelectedDriver(editedDriver); // Update the selected driver in the UI
+      setSelectedDriver(editedDriver);
       setIsEditing(false);
     } catch (error) {
       console.error("Error editing driver:", error);
