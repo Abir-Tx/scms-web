@@ -84,7 +84,20 @@ const DriverSearch: React.FC = () => {
 
   const handleEditDriver = () => {
     setIsEditing(true);
-    setEditedDriver({ ...selectedDriver }); // Create a copy of the selected driver for editing
+    setEditedDriver({
+      ...selectedDriver,
+      name: selectedDriver?.name || "",
+      contactNumber: selectedDriver?.contactNumber || "",
+      licenseNumber: selectedDriver?.licenseNumber || "",
+      availability: selectedDriver?.availability || false,
+      email: selectedDriver?.email || "",
+      password: selectedDriver?.password || "",
+      vehicleId: selectedDriver?.vehicleId || 0,
+      notes: selectedDriver?.notes || "",
+      photo: selectedDriver?.photo || "",
+      address: selectedDriver?.address || "",
+      id: selectedDriver?.id || 0,
+    });
   };
 
   const handleSaveEdit = async () => {
