@@ -4,18 +4,36 @@ import styles from "./dashboard.module.scss";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatedPage } from "@/app/components/animated-page";
-
+import Modal from "react-modal";
+import { color } from "framer-motion";
 interface driverData {
   name: string;
 }
 
 interface vehicleData {
+  id: number;
+  source: string;
+  destination: string;
+  requestedDate: string;
   status: string;
 }
 
 interface shipmentData {
   status: string;
 }
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    color: "black",
+    borderRadius: "30px",
+  },
+};
 
 export default function Dashboard() {
   const [driverData, setData] = useState<driverData[]>([]);
@@ -31,6 +49,15 @@ export default function Dashboard() {
     []
   );
   const [pendingTransports, setPendingTransports] = useState<vehicleData[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -179,11 +206,51 @@ export default function Dashboard() {
               <div className={styles.transportDetCardHeader}>
                 {/* <h3>Vehicle</h3> */}
               </div>
-              <div className={styles.transportDetCardBody}>
+              <div
+                className={styles.transportDetCardBody}
+                onClick={handleOpenModal}
+              >
                 <span>
                   You have {pendingTransports.length} pending transports
                 </span>
               </div>
+
+              <Modal
+                isOpen={isModalOpen}
+                onRequestClose={handleCloseModal}
+                contentLabel="Pending Transports"
+                style={customStyles}
+              >
+                <h2>Pending Transports</h2>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Source</th>
+                      <th>Destination</th>
+                      <th>Requested Date</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {pendingTransports.map((transport) => (
+                      <tr key={transport.id}>
+                        <td>{transport.id}</td>
+                        <td>{transport.source}</td>
+                        <td>{transport.destination}</td>
+                        <td>{transport.requestedDate}</td>
+                        <td>{transport.status}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <button
+                  onClick={handleCloseModal}
+                  className={styles.closeButton}
+                >
+                  Close
+                </button>
+              </Modal>
             </div>
           </div>
         </div>
