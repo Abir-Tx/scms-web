@@ -81,6 +81,24 @@ export default function Drivers() {
     }
   };
 
+  const handleDelete = async (id: number) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this driver?"
+    );
+    if (confirmDelete) {
+      try {
+        await api.delete(`/drivers/${id}`);
+
+        // Fetch updated data after deleting the driver
+        const response = await api.get<driverData[]>("/drivers");
+        setData(response.data);
+      } catch (error) {
+        console.log(error);
+        alert("Error deleting driver");
+      }
+    }
+  };
+
   return (
     <AnimatedPage>
       <div className={styles.driverManCon}>
@@ -97,6 +115,7 @@ export default function Drivers() {
               <th>Photo</th>
               <th>Address</th>
               <th>ID</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -112,6 +131,11 @@ export default function Drivers() {
                 <td>{driver.photo}</td>
                 <td>{driver.address}</td>
                 <td>{driver.id}</td>
+                <td>
+                  <button onClick={() => handleDelete(driver.id)}>
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
