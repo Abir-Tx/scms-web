@@ -14,6 +14,10 @@ A project under Advance Web Technology Course under the supervision of @hsazzad-
 
 [Click to view the live site](https://scms-wheat.vercel.app/)
 
+## Backend
+
+The backed of this website is in another repo which is hosted [here](https://github.com/Abir-Tx/scms-backend)
+
 ## Technical Details
 
 - Language: TypeScript
