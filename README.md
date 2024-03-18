@@ -4,6 +4,10 @@ Supply Chain Management System Frontent Website created Using NEXTJS and Bootstr
 
 A project under Advance Web Technology Course under the supervision of @hsazzad-prog Sir.
 
+> This project is not being maintained or developed anymore. I am not archiving this project as I will accept PRs and issues if anyone wants to contribute as the project is not in a state to be used in production environment and has bugs regarding the authentication system and also UI/UX can be improved. So if you want to contribute, feel free to do so. I will be happy to accept your PRs. Thanks
+
+> You can find the backend of this project [here](https://github.com/Abir-Tx/scms-backend)
+
 ## Features
 
 - Authentication
