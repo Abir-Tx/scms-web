@@ -2,13 +2,17 @@
 
 Supply Chain Management System Frontent Website created Using NEXTJS and Bootstrap. A finar term frontend project for my Advance Webtech Project
 
-A project under Advance Web Technology Course under the supervision of @hsazzad-prog Sir
+A project under Advance Web Technology Course under the supervision of @hsazzad-prog Sir.
 
 ## Features
 
 - Authentication
 - User Management
 - Automatic day-night mode
+
+### Notes
+
+- The Authentication System is currently in a dummy state. As this is not a fully fledged project, so if you decide to use this project in production environment, you should re-enable or re-code the authentication system.
 
 ## Live Demo
 
@@ -32,6 +36,8 @@ The backed of this website is in another repo which is hosted [here](https://git
 - Install dependencies using `npm install`
 - Run the project using `npm run dev`
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. (Port may vary if 3000 is already in use)
+
+Also do note that in order to **SCMS-Web** to work properly, you need to have the backend running. You can find the backend repo [here](https://github.com/Abir-Tx/scms-backend) and follow the instructions to run the backend server in another terminal.
 
 ## Screenshots
 
